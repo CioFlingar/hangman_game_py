@@ -1,4 +1,6 @@
 import random
+from random import choice
+
 from extras.hangman_art import logo,stages
 from extras.hangman_words import word_list
 
@@ -40,8 +42,21 @@ def hangman():
                 print(f"Game over! The word was '{chosen_word}'.")
                 break
         else:
-            guessed_letters.insert()
+            # guessed_letters.insert()
             print("Good Guess.")
 
 
-hangman()
+def play_again():
+    while True:
+        choice = input("Do you want to play again? ['Yes','No']").lower()
+        if choice in ["yes", "no"]:
+            return choice == "yes"
+        else:
+            print("Please enter 'yes' or 'no'.")
+
+if __name__ == "__main__":
+    while True:
+        hangman()
+        if not play_again():
+            print("Thanks for playing! Goodbye!")
+            break
